@@ -1,0 +1,17 @@
+<div class="container">
+<h3>Create a new feedback point</h3>
+    <form #pointForm="ngForm" (ngSubmit)="onSubmit(pointForm)" class="form">
+        <mat-form-field class="name-form" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput #name="ngModel" class="form-control" [(ngModel)]="point.name" name="name" id="name" required type="text">
+            <mat-error [hidden]="name.valid || name.pristine">
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="prompt-form" appearance="fill">
+            <mat-label>Prompt</mat-label>
+            <input matInput #name="ngModel" class="form-control" [(ngModel)]="point.prompt" name="prompt" id="prompt" placeholder="How was your experience today?" type="text">
+        </mat-form-field>
+        <button mat-button [disabled]="!pointForm.form.valid" type="submit" >Submit</button>
+    </form>
+</div>

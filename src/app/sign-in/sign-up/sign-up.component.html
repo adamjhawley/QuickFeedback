@@ -1,0 +1,20 @@
+<app-toolbar [loggedIn]="false"></app-toolbar>
+
+<div class="container">
+    <div class="centred">
+        <h2>Sign Up</h2>
+        <app-sign-up-form></app-sign-up-form>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="alternate-signins">
+        <button (click)="signInGoogle()" class="google-button" mat-stroked-button>
+            <div class="login-google">
+                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                <p class="btn-text">Google</p>
+            </div>
+        </button>
+    </div>
+    <div class="centred">
+        <p>Already have an account? <a routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Log in</a></p>
+    </div>
+</div>

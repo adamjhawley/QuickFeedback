@@ -1,0 +1,6 @@
+<mat-toolbar style="height: 7.5vh" class="toolbar">
+    <span>QuickFeedback</span>
+    <div *ngIf="loggedIn">
+        <button (click)="signOut()" mat-button>Sign-Out</button>
+    </div>
+</mat-toolbar>

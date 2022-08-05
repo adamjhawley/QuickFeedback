@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="header">
+        <span style="margin-top: auto; margin-bottom: auto;">Name</span>
+      </div>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Icons Column -->
+  <ng-container justify="end" matColumnDef="icons">
+    <th mat-header-cell *matHeaderCellDef>
+      <button (click)="addPoint()" mat-icon-button>
+        <mat-icon fontIcon="add"></mat-icon>
+      </button>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="deletePoint(element, $event)" mat-icon-button aira-label="Delete feedback">
+        <mat-icon fontIcon="close"></mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr (click)="activePoint=row; newPoint.emit(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

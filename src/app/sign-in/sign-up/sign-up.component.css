@@ -1,0 +1,36 @@
+.container {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 50%;
+    -ms-transform: translate(-50%, -30%);
+    transform: translate(-50%, -30%);
+    border-radius: 5px;
+}
+
+.centred {
+    justify-content: center;
+    text-align: center;
+}
+
+.google-button {
+    margin: 10px;
+}
+
+.login-google {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.google-icon {
+    padding-right: 7px;
+    height: 2em;
+}
+
+.alternate-signins {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

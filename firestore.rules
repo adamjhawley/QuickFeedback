@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/points/{documents=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId
+    }
+    match /users/{userId}/points/{documents=**} {
+      allow get: if true
+      allow update: if (request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['feedback']));
+    }
+  }
+}

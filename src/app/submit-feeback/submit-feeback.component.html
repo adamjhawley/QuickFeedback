@@ -1,0 +1,16 @@
+<div class="container" *ngIf="_point">
+    <mat-card>
+        <h2 *ngIf="_point.prompt">
+            {{_point.prompt}}
+        </h2>
+        <h2 *ngIf="!_point.prompt">
+            Please leave your feedback below.
+        </h2>
+        <form (ngSubmit)="onSubmit()" class="form">
+            <mat-form-field appearance="fill">
+                <textarea matInput [errorStateMatcher]="matcher" [formControl]="answer" name="answer" id="answer" type="text"></textarea>
+            </mat-form-field>
+            <button mat-flat-button color="primary" [disabled]="!answer.valid" type="submit" >Submit</button>
+        </form>
+    </mat-card>
+</div>

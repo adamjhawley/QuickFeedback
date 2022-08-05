@@ -1,0 +1,39 @@
+.mat-table {
+    width: 100%;
+    box-shadow: none;
+}
+
+.mat-card {
+    margin: auto;
+    box-shadow: none;
+}
+
+.qr-container {
+    max-height: 33vw;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+
+.mat-row .mat-icon {
+    visibility: hidden;
+}
+
+.mat-row:hover .mat-icon {
+    visibility: visible;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-column-icons {
+    text-align: right;
+    justify-content: flex-end;
+}

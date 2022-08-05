@@ -1,0 +1,23 @@
+.mat-card {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    box-shadow: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    width: 90%
+}
+
+.container {
+    height: 100%;
+}

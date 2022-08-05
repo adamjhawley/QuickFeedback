@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "qrfeedback-5050"
+  },
+  "targets": {
+    "qrfeedback-5050": {
+      "hosting": {
+        "qrfb-fe": [
+          "qrfeedback-5050"
+        ]
+      }
+    }
+  }
+}

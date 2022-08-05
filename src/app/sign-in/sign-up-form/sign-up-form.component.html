@@ -1,0 +1,28 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+    <!-- EMAIL FIELD -->
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="Ex. gordon@example.com">
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <!-- PASSWORD FIELD -->
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [formControl]="password" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <div>
+        <button mat-raised-button class="submit-btn" type="submit" color="primary" [disabled]="!(email.valid && password.valid)" mat-stroked-button>Create an Account</button>
+    </div>
+</form>

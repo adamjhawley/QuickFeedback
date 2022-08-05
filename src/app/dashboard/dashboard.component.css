@@ -1,0 +1,7 @@
+  .resizer {
+    background-color: #cbd5e0;
+    cursor: ew-resize;
+    width: 3px;
+    height: 92.5vh;
+    position: sticky;
+  }

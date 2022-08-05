@@ -1,0 +1,66 @@
+<ng-container *ngIf="!createView && activePoint && activePoint.feedback && activePoint.id">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{activePoint.name}}</mat-card-title>
+    </mat-card-header>
+    <div class="qr-container">
+      <qrcode [qrdata]="getSubmitURL(activePoint.id)" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+    <div *ngIf="activePoint.prompt">
+      <span><i>"{{activePoint.prompt}}"</i></span>
+    </div>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" target="_blank" href={{getSubmitURL(activePoint.id)}}>Open Form</a>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+  <div *ngIf="activePoint.feedback.length > 0">
+    <table mat-table [dataSource]="dataSource" >
+      <!-- Feedback Column -->
+      <ng-container matColumnDef="feedback">
+        <th mat-header-cell *matHeaderCellDef> Feedback </th>
+        <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+      </ng-container>
+
+      <!-- Timestamp Column -->
+      <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+        <td mat-cell *matCellDef="let element"> {{parseTimeStamp(element.timestamp)}} </td>
+      </ng-container>
+
+      <!-- Icons Column -->
+      <ng-container justify="end" matColumnDef="icons">
+        <th mat-header-cell *matHeaderCellDef>
+          <button (click)="refreshFeedback()" mat-icon-button aira-label="Refresh feedback">
+            <mat-icon fontIcon="replay"></mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="deleteFeedback(element)" mat-icon-button aira-label="Delete feedback">
+            <mat-icon fontIcon="close"></mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons 
+      aria-label="Select page of feedback">
+    </mat-paginator>
+  </div>
+  <ng-container *ngIf="activePoint.feedback.length == 0">
+    <div style="display:flex; justify-content: center; align-items: center;">
+      <p>No feedback for this point yet. Click the icon to refresh:</p>
+      <button (click)="refreshFeedback()" mat-icon-button aira-label="Refresh feedback">
+        <mat-icon fontIcon="replay"></mat-icon>
+      </button>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="createView">
+  <app-create-point-form></app-create-point-form>
+</ng-container>

@@ -1,0 +1,10 @@
+<app-toolbar [loggedIn]="true"></app-toolbar>
+<div style="display: flex">
+    <div style="flex-shrink: 0; min-width: 25vw;">
+        <app-point-table (createPointView)="setCreatePointView($event)" (newPoint)="setActivePoint($event)" (clearPoint)="setActivePoint(null)"></app-point-table>
+    </div>
+    <div (mousedown)="mouseDownHandler($event)" class="resizer" #dragMe></div>
+    <div style="flex: 1 1 0%;">
+        <app-feedback-browser [createView]="createPointView" [activePoint]="activePoint" (refresh)="refreshPoint()" ></app-feedback-browser>
+    </div>
+</div>
